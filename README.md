@@ -1,27 +1,44 @@
 # CRUD User Management Application
 
-A Java EE web application for managing user records through a web interface.
+A Java EE web application for managing users with authentication and database-backed CRUD operations.
 
 ## Overview
 
-This project demonstrates a traditional Java web application architecture using Java Servlets, JSP pages, a DAO layer, and JDBC for database access.
+This academic project demonstrates how to build a Java web application connected to a MySQL database. Users can log in to access protected pages and manage user records through a web interface.
+
+The application uses a DAO (Data Access Object) layer to separate database operations from the web layer.
 
 ## Features
 
-- User login interface
-- Create a user
-- Display the list of users
-- Update user information
-- Delete a user
+- **Authentication:** login with username and password.
+- **Session management:** maintain an authenticated session and log out.
+- **Protected pages:** restrict access to user-management pages through a web filter.
+- **List users:** display users stored in the database.
+- **Create users:** add a user with form validation, including required fields and password confirmation.
+- **Update users:** edit an existing user's information.
+- **Delete users:** remove a user after a confirmation step.
+- **Database persistence:** store and retrieve user records from MySQL.
 
-## Technology Stack
+## Technologies
 
 - Java
+- Java EE
 - Java Servlets
 - JSP (JavaServer Pages)
 - JDBC
 - MySQL
-- Apache Tomcat / Java web application structure
+- SQL
+- HTML, CSS and JavaScript
+
+## Architecture
+
+The project follows an MVC-style organization:
+
+- **Beans:** user model and data representation.
+- **DAO:** database connection and SQL operations.
+- **Servlets:** handle authentication and user-management requests.
+- **Filters:** protect pages that require authentication.
+- **JSP:** render the application interface.
 
 ## Project Structure
 
@@ -29,7 +46,7 @@ This project demonstrates a traditional Java web application architecture using 
 src/
 ├── beans/       # User model
 ├── dao/         # Database access and CRUD operations
-├── filters/     # Web filters
+├── filters/     # Authentication filters
 ├── forms/       # Form-related classes
 └── servlets/    # Login and user management controllers
 
@@ -39,17 +56,25 @@ WebContent/
 
 ## Database
 
-The DAO layer connects to a MySQL database named `jee` and uses a `users` table.
+The application uses a MySQL database named `jee` and a `users` table containing user information such as ID, name, first name, login and password.
 
-Before running the application, configure the database connection in `src/dao/UtilisateurDao.java` for your local environment. Do not commit real passwords or production credentials.
+Configure the database connection in `src/dao/UtilisateurDao.java` to match your local MySQL environment before running the application. Do not commit real passwords or production credentials.
+
+## Run Locally
+
+1. Create the MySQL database and the required `users` table.
+2. Configure the JDBC connection in `UtilisateurDao.java`.
+3. Import the project into a Java EE-compatible IDE.
+4. Configure a compatible servlet container, such as Apache Tomcat.
+5. Deploy the application and open it in your browser.
+
+## Demo
+
+[Watch the project demonstration on YouTube](https://www.youtube.com/watch?v=EtXwKayDG1k)
 
 ## Learning Objectives
 
-This project was built to practice:
-- Java web application structure
-- MVC-style separation between models, DAO classes, servlets, and JSP views
-- JDBC and SQL operations
-- Basic authentication flow and CRUD operations
+This project helped practice Java web development, JDBC database connectivity, DAO organization, authentication and session handling, servlet filters, and CRUD operations.
 
 ## Author
 
